@@ -17,28 +17,36 @@ def num_check(question):
     while not valid:
         error = "Please enter something that is more than zero"
 
-
         try:
 
-            #ask user to enter a number
+            # ask user to enter a number
             response = float(input(question))
 
-            #checks number is more than zero
+            # checks number is more than zero
             if response > 0:
                 return response
                 print(error)
                 print()
 
 
-            #Outputs error if input is invalid
+            # Outputs error if input is invalid
             else:
                 print(error)
                 print()
 
         except ValueError:
-                 print(error)
-                 print()
+            print(error)
+            print()
 
+
+# Main Routine
+
+    statement_generator("Factors Calculator," "-")
+
+    first_time = input("Press <enter> to see the instructions or any key to continue ")
+
+    if first_time == ""
+        instructions()
 
 keep_going = ""
 while keep_going == "":
@@ -49,7 +57,7 @@ while keep_going == "":
     var_to_factor = num_check("Number? ")
 
     if var_to_factor != 1:
-        factor_list = (var_to_factor)
+        factor_list = get_factors(var_to_factor)
     else:
         factor_list = ""
         comment = "One is Unity, it only has one factor that being itself"
