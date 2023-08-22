@@ -20,4 +20,8 @@ while keep_going == "":
     # output. . .
     print()
     print("You have {} lollies and {} students".format(num_lollies,num_students))
-    print("Each student gets {] lollies".format(lollies_per_student))
+    print("Each student gets {} lollies".format(lollies_per_student))
+    print("You have {} {} left".format(lollies_left, lolly_pl))
+
+    keep_going = input("Again <enter>? ")
+    print()
