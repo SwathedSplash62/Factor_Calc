@@ -1,3 +1,11 @@
+
+def factors(my_list, the_number, the_factor=3):
+    if the_number % the_factor == 0:
+        print(the_factor)
+        my_list.append(the_factor)
+        factors(the_number, the_factor)
+    elif the_factor <= the_number:
+        factors(the_number, the_factor+2)
 def statement_generator(text, decoration):
     # Make string with five characters
     ends = decoration * 5
@@ -15,7 +23,7 @@ def statement_generator(text, decoration):
 def num_check(question):
     valid = False
     while not valid:
-        error = "Please enter something that is more than zero"
+        error = "Please enter something that is greater than or equal to one and less than or equal to 200"
 
         try:
 
@@ -23,11 +31,8 @@ def num_check(question):
             response = float(input(question))
 
             # checks number is more than zero
-            if response > 0:
+            if 1 <= response <= 200:
                 return response
-                print(error)
-                print()
-
 
             # Outputs error if input is invalid
             else:
@@ -45,8 +50,64 @@ def num_check(question):
 
     first_time = input("Press <enter> to see the instructions or any key to continue ")
 
-    if first_time == ""
+    if first_time == "":
         instructions()
+
+def instructions():
+    statement_generator("Instructions/information", "-")
+    print()
+    print("Please choose a number than is greater than or equal to one and less than or equal to 200")
+    print()
+    print("Complete as many calculations as necessary, pressing <enter> at the end of each "
+          "calculation or any key to quit.")
+    print()
+    return ""
+
+
+# Gets factors, returns a sorted list
+def get_factors(to_factor):
+
+    # list to hold factors
+    factors_list = []
+
+    # Square root factor to find 'half-way'
+    limit = int(to_factor**0.5)
+
+    # Find factor pairs and add to list
+    for item in range(1, limit+1):
+
+        # Check factor is not 1 (unity)
+
+        if to_factor ==1:
+            break
+
+        # Check if number is a factor
+        result = to_factor % item
+        factor_1 = int(to_factor // item)
+
+        # Add factor to a list if it is not already there
+        if result ==0:
+            factors_list.append(factor_1)
+
+        if factor_1 != item and result == 0:
+            factors_list.append(factor_1)
+
+        # Output
+        factor_list.sort()
+        return factors_list
+
+# Main routine goes here
+
+# Heading
+statement_generator("Factors Calculator", "-")
+
+# Displays instructions if user has not used the program before
+first_time = input("Press <enter> to see the instructions or any key to continue")
+
+if first_time =="":
+    instructions()
+
+# Loop to allow multiple calculations per session
 
 keep_going = ""
 while keep_going == "":
@@ -59,8 +120,8 @@ while keep_going == "":
     if var_to_factor != 1:
         factor_list = get_factors(var_to_factor)
     else:
-        factor_list = ""
         comment = "One is Unity, it only has one factor that being itself"
+        factor_list = ""
 
     # comments for squares / primes
     if len(factor_list) == 2:
