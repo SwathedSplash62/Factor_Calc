@@ -1,11 +1,12 @@
-
 def factors(my_list, the_number, the_factor=3):
     if the_number % the_factor == 0:
         print(the_factor)
         my_list.append(the_factor)
         factors(the_number, the_factor)
     elif the_factor <= the_number:
-        factors(the_number, the_factor+2)
+        factors(the_number, the_factor + 2)
+
+
 def statement_generator(text, decoration):
     # Make string with five characters
     ends = decoration * 5
@@ -43,15 +44,15 @@ def num_check(question):
             print(error)
             print()
 
+    # Main Routine
 
-# Main Routine
+    statement_generator("Factors Calculator", "-")
 
-    statement_generator("Factors Calculator," "-")
+    first_time_ = input("Press <enter> to see the instructions or any key to continue ")
 
-    first_time = input("Press <enter> to see the instructions or any key to continue ")
-
-    if first_time == "":
+    if first_time_ == "":
         instructions()
+
 
 def instructions():
     statement_generator("Instructions/information", "-")
@@ -66,19 +67,18 @@ def instructions():
 
 # Gets factors, returns a sorted list
 def get_factors(to_factor):
-
     # list to hold factors
     factors_list = []
 
     # Square root factor to find 'half-way'
-    limit = int(to_factor**0.5)
+    limit = int(to_factor ** 0.5)
 
     # Find factor pairs and add to list
-    for item in range(1, limit+1):
+    for item in range(1, limit + 1):
 
         # Check factor is not 1 (unity)
 
-        if to_factor ==1:
+        if to_factor == 1:
             break
 
         # Check if number is a factor
@@ -86,15 +86,16 @@ def get_factors(to_factor):
         factor_1 = int(to_factor // item)
 
         # Add factor to a list if it is not already there
-        if result ==0:
+        if result == 0:
             factors_list.append(factor_1)
 
         if factor_1 != item and result == 0:
             factors_list.append(factor_1)
 
         # Output
-        factor_list.sort()
+        factors_list.sort()
         return factors_list
+
 
 # Main routine goes here
 
@@ -104,7 +105,7 @@ statement_generator("Factors Calculator", "-")
 # Displays instructions if user has not used the program before
 first_time = input("Press <enter> to see the instructions or any key to continue")
 
-if first_time =="":
+if first_time == "":
     instructions()
 
 # Loop to allow multiple calculations per session
