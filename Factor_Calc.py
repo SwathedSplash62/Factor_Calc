@@ -89,12 +89,15 @@ def get_factors(to_factor):
         if result == 0:
             factors_list.append(factor_1)
 
+            if item not in factors_list:
+                factors_list.append(item)
+
         if factor_1 != item and result == 0:
             factors_list.append(factor_1)
 
-        # Output
-        factors_list.sort()
-        return factors_list
+    # Output
+    factors_list.sort()
+    return factors_list
 
 
 # Main routine goes here
@@ -137,7 +140,7 @@ while keep_going == "":
         heading = "One is special. . ."
 
     else:
-        heading = "Factors of {}".format(var_to_factor)
+        heading = "Factors of {:.0f}".format(var_to_factor)
 
     # Output factors and comment
     statement_generator(heading, "*")
