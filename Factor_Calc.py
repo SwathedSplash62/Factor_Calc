@@ -1,10 +1,3 @@
-def factors(my_list, the_number, the_factor=3):
-    if the_number % the_factor == 0:
-        print(the_factor)
-        my_list.append(the_factor)
-        factors(the_number, the_factor)
-    elif the_factor <= the_number:
-        factors(the_number, the_factor + 2)
 
 
 def statement_generator(text, decoration):
@@ -29,7 +22,7 @@ def num_check(question):
         try:
 
             # ask user to enter a number
-            response = float(input(question))
+            response = int(input(question))
 
             # checks number is more than zero
             if 1 <= response <= 200:
@@ -76,11 +69,6 @@ def get_factors(to_factor):
     # Find factor pairs and add to list
     for item in range(1, limit + 1):
 
-        # Check factor is not 1 (unity)
-
-        if to_factor == 1:
-            break
-
         # Check if number is a factor
         result = to_factor % item
         factor_1 = int(to_factor // item)
@@ -92,8 +80,8 @@ def get_factors(to_factor):
             if item not in factors_list:
                 factors_list.append(item)
 
-        if factor_1 != item and result == 0:
-            factors_list.append(factor_1)
+        # if factor_1 != item and result == 0:
+        #     factors_list.append(factor_1)
 
     # Output
     factors_list.sort()
@@ -116,6 +104,8 @@ if first_time == "":
 keep_going = ""
 while keep_going == "":
 
+    # initialise comment, this will be populated if the
+    # number is a prime / perfect square
     comment = ""
 
     # ask user for a number to be factored
@@ -130,6 +120,8 @@ while keep_going == "":
     # comments for squares / primes
     if len(factor_list) == 2:
         comment = "{} is a prime number.".format(var_to_factor)
+
+    # if we have san odd number of factors, it's a perfect square
     elif len(factor_list) % 2 == 1:
         comment = "{} is a perfect square".format(var_to_factor)
 
